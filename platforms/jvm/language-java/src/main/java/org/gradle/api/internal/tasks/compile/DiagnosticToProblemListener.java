@@ -26,6 +26,7 @@ import com.sun.tools.javac.util.Log;
 import org.gradle.api.problems.ProblemSpec;
 import org.gradle.api.problems.Problems;
 import org.gradle.api.problems.Severity;
+import org.gradle.api.problems.internal.GenericData;
 import org.gradle.api.problems.internal.GradleCoreProblemGroup;
 import org.gradle.api.problems.internal.InternalProblemReporter;
 import org.gradle.api.problems.internal.InternalProblemSpec;
@@ -80,10 +81,7 @@ public class DiagnosticToProblemListener implements DiagnosticListener<JavaFileO
     private void addFormattedMessage(ProblemSpec spec, Diagnostic<? extends JavaFileObject> diagnostic) {
         String formatted = messageFormatter.apply(diagnostic);
         System.err.println(formatted);
-
-        ((InternalProblemSpec) spec).additionalData(
-            "formatted", formatted
-        );
+        ((InternalProblemSpec) spec).additionalData(GenericData.class, data -> data.put("formatted", formatted));
     }
 
     private static void addDetails(ProblemSpec spec, Diagnostic<? extends JavaFileObject> diagnostic) {

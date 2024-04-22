@@ -50,7 +50,10 @@ public class DefaultNodeValidator implements NodeValidator {
     @Override
     public boolean hasValidationProblems(LocalTaskNode node) {
         WorkValidationContext validationContext = validateNode(node);
-        List<? extends Problem> problems = validationContext.getProblems();
+        List<? extends Problem> problems = validationContext.getProblems(); // TODO (donat) should we report these problems?.
+        for (Problem problem : problems) {
+            problemsService.getInternalReporter().report(problem);
+        }
         logWarnings(problems);
         reportErrors(problems, node.getTask(), validationContext);
         return !problems.isEmpty();
