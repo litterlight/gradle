@@ -279,7 +279,7 @@ class ProblemsServiceIntegrationTest extends AbstractIntegrationSpec {
         run('reportProblem')
 
         then:
-        receivedProblem.additionalData.asMap == ['asMap': ['key': 'value']] // TODO (donat) this seems suspicious
+        receivedProblem.additionalData.asMap == ['key': 'value']
     }
 
     @spock.lang.Ignore("TODO (donat) declare the list of allowed additional data types")

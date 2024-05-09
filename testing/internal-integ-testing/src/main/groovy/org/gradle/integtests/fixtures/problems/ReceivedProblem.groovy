@@ -351,12 +351,23 @@ class ReceivedProblem implements Problem {
         private final Map<String, Object> data
 
         ReceivedAdditionalData(Map<String, Object> data) {
-            this.data = data
+            if (data == null) {
+                this.data = [:]
+            } else {
+                def d = data.findAll { k, v -> v != null }
+                // GenericData already contains asMap property; it is removed for clarity
+                if (d['asMap'] instanceof Map) {
+                    this.data = d['asMap'] as Map<String, Object>
+                } else {
+                    this.data = d
+                }
+            }
         }
 
         Map<String, Object> getAsMap() {
-            data == null ? [:] : data.findAll { k, v -> v != null }
+            data
         }
+
         boolean containsAll(Map<String, Object> properties) {
             data.entrySet().containsAll(properties.entrySet())
         }
