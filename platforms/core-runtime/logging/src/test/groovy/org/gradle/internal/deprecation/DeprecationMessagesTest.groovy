@@ -26,7 +26,6 @@ import org.gradle.api.problems.internal.DefaultProblemId
 import org.gradle.api.problems.internal.DefaultProblems
 import org.gradle.api.problems.internal.DeprecationData
 import org.gradle.api.problems.internal.GradleCoreProblemGroup
-import org.gradle.api.problems.internal.Problem
 import org.gradle.api.problems.internal.ProblemEmitter
 import org.gradle.api.tasks.bundling.AbstractArchiveTask
 import org.gradle.internal.logging.CollectingTestOutputEventListener
@@ -41,7 +40,6 @@ import spock.lang.Specification
 
 import static org.gradle.api.internal.DocumentationRegistry.RECOMMENDATION
 import static org.gradle.internal.deprecation.DeprecationMessageBuilder.createDefaultDeprecationId
-
 
 class DeprecationMessagesTest extends Specification {
 
