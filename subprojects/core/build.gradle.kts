@@ -224,6 +224,7 @@ dependencies {
     testFixturesImplementation(project(":normalization-java"))
     testFixturesImplementation(project(":persistent-cache"))
     testFixturesImplementation(project(":snapshots"))
+    testFixturesImplementation(project(":unit-test-fixtures"))
     testFixturesImplementation(libs.ant)
     testFixturesImplementation(libs.asm)
     testFixturesImplementation(libs.groovyAnt)

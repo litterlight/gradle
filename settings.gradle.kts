@@ -228,6 +228,7 @@ platform("extensibility") {
     uses(jvm)
     subproject("plugin-use")
     subproject("plugin-development")
+    subproject("unit-test-fixtures")
     subproject("test-kit")
 }
 
