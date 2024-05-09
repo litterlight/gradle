@@ -21,8 +21,8 @@
     "crossVersionTests": false
   },
   {
-    "name": "base-annotations",
-    "path": "platforms/core-runtime/base-annotations",
+    "name": "base-asm",
+    "path": "platforms/core-runtime/base-asm",
     "unitTests": false,
     "functionalTests": false,
     "crossVersionTests": false
@@ -66,6 +66,13 @@
     "name": "build-cache-base",
     "path": "platforms/core-execution/build-cache-base",
     "unitTests": true,
+    "functionalTests": false,
+    "crossVersionTests": false
+  },
+  {
+    "name": "build-cache-example-client",
+    "path": "platforms/core-execution/build-cache-example-client",
+    "unitTests": false,
     "functionalTests": false,
     "crossVersionTests": false
   },
@@ -140,6 +147,13 @@
     "crossVersionTests": false
   },
   {
+    "name": "build-state",
+    "path": "platforms/core-runtime/build-state",
+    "unitTests": false,
+    "functionalTests": false,
+    "crossVersionTests": false
+  },
+  {
     "name": "cli",
     "path": "platforms/core-runtime/cli",
     "unitTests": true,
@@ -158,6 +172,13 @@
     "path": "subprojects/composite-builds",
     "unitTests": true,
     "functionalTests": true,
+    "crossVersionTests": false
+  },
+  {
+    "name": "concurrent",
+    "path": "platforms/core-runtime/concurrent",
+    "unitTests": true,
+    "functionalTests": false,
     "crossVersionTests": false
   },
   {
@@ -504,6 +525,13 @@
     "crossVersionTests": false
   },
   {
+    "name": "io",
+    "path": "platforms/core-runtime/io",
+    "unitTests": true,
+    "functionalTests": false,
+    "crossVersionTests": false
+  },
+  {
     "name": "ivy",
     "path": "platforms/software/ivy",
     "unitTests": true,
@@ -520,6 +548,13 @@
   {
     "name": "java-compiler-plugin",
     "path": "platforms/jvm/java-compiler-plugin",
+    "unitTests": true,
+    "functionalTests": false,
+    "crossVersionTests": false
+  },
+  {
+    "name": "java-language-extensions",
+    "path": "platforms/core-runtime/java-language-extensions",
     "unitTests": true,
     "functionalTests": false,
     "crossVersionTests": false
@@ -721,13 +756,6 @@
     "crossVersionTests": false
   },
   {
-    "name": "plugins",
-    "path": "subprojects/plugins",
-    "unitTests": false,
-    "functionalTests": true,
-    "crossVersionTests": false
-  },
-  {
     "name": "plugins-application",
     "path": "platforms/jvm/plugins-application",
     "unitTests": true,
@@ -896,6 +924,13 @@
     "crossVersionTests": false
   },
   {
+    "name": "serialization",
+    "path": "platforms/core-runtime/serialization",
+    "unitTests": true,
+    "functionalTests": false,
+    "crossVersionTests": false
+  },
+  {
     "name": "signing",
     "path": "platforms/software/signing",
     "unitTests": true,
@@ -977,6 +1012,13 @@
     "path": "platforms/native/testing-native",
     "unitTests": true,
     "functionalTests": true,
+    "crossVersionTests": false
+  },
+  {
+    "name": "time",
+    "path": "platforms/core-runtime/time",
+    "unitTests": true,
+    "functionalTests": false,
     "crossVersionTests": false
   },
   {

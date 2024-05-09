@@ -22,6 +22,7 @@ errorprone {
 }
 
 dependencies {
+    implementation(projects.io)
     implementation(project(":base-services"))
     implementation(project(":functional"))
     implementation(project(":enterprise-operations"))
@@ -44,6 +45,7 @@ dependencies {
     implementation(project(":bootstrap"))
     implementation(project(":jvm-services"))
     implementation(project(":build-events"))
+    implementation(project(":build-state"))
     implementation(project(":tooling-api"))
     implementation(project(":file-watching"))
     implementation(project(":problems-api"))
@@ -65,6 +67,7 @@ dependencies {
     runtimeOnly(libs.slf4jApi)
 
     manifestClasspath(project(":bootstrap"))
+    manifestClasspath(projects.javaLanguageExtensions)
     manifestClasspath(project(":base-services"))
     manifestClasspath(project(":worker-services"))
     manifestClasspath(project(":core-api"))
@@ -83,6 +86,7 @@ dependencies {
     testImplementation(project(":snapshots"))
     testImplementation(project(":base-services-groovy")) // for 'Specs'
 
+    testImplementation(testFixtures(projects.serialization))
     testImplementation(testFixtures(project(":core")))
     testImplementation(testFixtures(project(":language-java")))
     testImplementation(testFixtures(project(":messaging")))
