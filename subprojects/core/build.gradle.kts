@@ -218,13 +218,15 @@ dependencies {
     testFixturesApi(testFixtures(project(":snapshots"))) {
         because("test fixtures expose file snapshot related functionality")
     }
+    testFixturesApi(project(":unit-test-fixtures")) {
+        because("test fixtures expose ProjectBuilder")
+    }
     testFixturesImplementation(project(":build-option"))
     testFixturesImplementation(project(":enterprise-operations"))
     testFixturesImplementation(project(":messaging"))
     testFixturesImplementation(project(":normalization-java"))
     testFixturesImplementation(project(":persistent-cache"))
     testFixturesImplementation(project(":snapshots"))
-    testFixturesImplementation(project(":unit-test-fixtures"))
     testFixturesImplementation(libs.ant)
     testFixturesImplementation(libs.asm)
     testFixturesImplementation(libs.groovyAnt)
