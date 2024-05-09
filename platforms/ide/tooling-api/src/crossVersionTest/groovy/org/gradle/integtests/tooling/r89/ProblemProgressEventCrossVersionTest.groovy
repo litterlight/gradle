@@ -104,7 +104,7 @@ class ProblemProgressEventCrossVersionTest extends ToolingApiSpecification {
                 $documentationConfig
                 .lineInFileLocation("/tmp/foo", 1, 2, 3)
                 $detailsConfig
-                .additionalData("aKey", "aValue")
+                .additionalData(org.gradle.api.problems.internal.GenericData, data -> data.put("aKey", "aValue"))
                 .severity(Severity.WARNING)
                 .solution("try this instead")
             }
@@ -140,7 +140,7 @@ class ProblemProgressEventCrossVersionTest extends ToolingApiSpecification {
                 $documentationConfig
                 .lineInFileLocation("/tmp/foo", 1, 2, 3)
                 $detailsConfig
-                .additionalData("aKey", "aValue")
+                .additionalData(org.gradle.api.problems.internal.GenericData, data -> data.put("aKey", "aValue"))
                 .severity(Severity.WARNING)
                 .solution("try this instead")
             }
@@ -288,48 +288,6 @@ class ProblemProgressEventCrossVersionTest extends ToolingApiSpecification {
         def problems = listener.problems
         validateCompilationProblem(problems, buildFile)
         problems[0].failure.failure == null
-    }
-
-    @spock.lang.IgnoreRest
-    def "Property validation failure should produce problem report with domain-specific additional data"() {
-        setup:
-        file('buildSrc/src/main/java/MyTask.java') << '''
-            import org.gradle.api.*;
-            import org.gradle.api.tasks.*;
-            import org.gradle.work.*;
-
-            @DisableCachingByDefault(because = "test task")
-            public class MyTask extends DefaultTask {
-                @Optional @Input
-                boolean getPrimitive() {
-                    return true;
-                }
-
-                @TaskAction public void execute() {}
-            }
-        '''
-        buildFile << '''
-            tasks.register('myTask', MyTask)
-        '''
-
-        when:
-        def listener = new ProblemProgressListener()
-        withConnection { connection ->
-            connection.newBuild()
-                .forTasks("myTask")
-                .addProgressListener(listener)
-
-                // TODO (donat) this is not needed for the final tes
-                .setStandardError(System.err)
-                .setStandardOutput(System.out)
-                .addArguments("--info")
-
-                .run()
-        }
-
-        then:
-        thrown(BuildException)
-        listener.problems.size() == 1
     }
 
     def "Dependency version catalog failure should produce problem report with domain-specific additional data"() {
