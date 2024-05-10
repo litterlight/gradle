@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 the original author or authors.
+ * Copyright 2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.gradle.testfixtures
+package org.gradle.api.internal.plugins
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
@@ -23,7 +23,7 @@ import org.gradle.internal.reflect.Instantiator
 import javax.inject.Inject
 
 
-public class CustomPluginWithInjection implements Plugin<Project> {
+class CustomPluginWithInjection implements Plugin<Project> {
     void apply(Project target) {
         target.task('hello');
     }

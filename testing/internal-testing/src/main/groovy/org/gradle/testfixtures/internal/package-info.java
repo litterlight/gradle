@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 the original author or authors.
+ * Copyright 2024 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +14,5 @@
  * limitations under the License.
  */
 
-package org.gradle.testfixtures
-
-import org.gradle.api.Plugin
-import org.gradle.api.Project
-
-
-class CustomPlugin implements Plugin<Project> {
-    void apply(Project target) {
-        target.task('hello');
-    }
-}
+@org.gradle.api.NonNullApi
+package org.gradle.testfixtures.internal;

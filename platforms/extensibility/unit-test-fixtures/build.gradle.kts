@@ -21,6 +21,12 @@ plugins {
 dependencies {
     implementation(project(":core"))
     implementation(project(":build-state"))
+
+    runtimeOnly(project(":distributions-core")) {
+        because("ProjectBuilder loads services from a Gradle distribution.")
+    }
+
+    testImplementation(project(":testing-base"))
 }
 
 description = "Public types for unit testing plugins"
