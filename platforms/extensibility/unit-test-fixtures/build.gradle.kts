@@ -22,7 +22,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":build-state"))
 
-    runtimeOnly(project(":distributions-core")) {
+    testRuntimeOnly(project(":distributions-core")) {
         because("ProjectBuilder loads services from a Gradle distribution.")
     }
 

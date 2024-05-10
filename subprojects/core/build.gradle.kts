@@ -271,9 +271,10 @@ dependencies {
     integTestImplementation(testFixtures(project(":native")))
     integTestImplementation(testFixtures(project(":file-temp")))
 
-//    testRuntimeOnly(project(":distributions-core")) {
-//        because("ProjectBuilder tests load services from a Gradle distribution.")
-//    }
+    testRuntimeOnly(project(":distributions-core")) {
+        because("ProjectBuilder cannot declare :distributions-core as a dependency.")
+    }
+
     integTestDistributionRuntimeOnly(project(":distributions-jvm")) {
         because("Some tests utilise the 'java-gradle-plugin' and with that TestKit, some also use the 'war' plugin")
     }
