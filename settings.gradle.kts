@@ -18,6 +18,12 @@ import org.gradle.api.internal.FeaturePreviews
 
 pluginManagement {
     repositories {
+        maven {
+            url "https://maven.aliyun.com/repository/central"
+        }
+        maven {
+            url "https://maven.aliyun.com/repository/gradle-plugin"
+        }
         gradlePluginPortal()
         mavenCentral()
         jcenter() // 如果必要
