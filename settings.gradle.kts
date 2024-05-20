@@ -19,6 +19,8 @@ import org.gradle.api.internal.FeaturePreviews
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        mavenCentral()
+        jcenter() // 如果必要
         maven { url = uri("https://repo.gradle.org/gradle/libs-releases") }
     }
 }
